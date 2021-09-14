@@ -4,3 +4,10 @@
     background-color:bisque;
     font-family: monospace;
 }
+
+#index{
+    padding: 2em;
+    font-family: monospace;
+    text-justify:middle;
+    
+}

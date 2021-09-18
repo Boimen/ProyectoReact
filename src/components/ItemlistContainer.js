@@ -1,15 +1,11 @@
+import ItemCount from "./ItemCount";
+
 const ItemlistContainer = () => {
     return(
-  
-        
-
-            <h1>Mi catalogo</h1>
-           
-          
-            
-            
-
-    )
+   
+            <ItemCount stock={5} initial={1} onAdd={()=>{}} />
+         
+    );
 }
 
-export default ItemlistContainer  
+export default ItemlistContainer;

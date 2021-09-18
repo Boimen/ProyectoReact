@@ -3,6 +3,7 @@ import Cartwidjet from "./Cartwidjet"
 import ItemlistContainer from "./ItemlistContainer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Estilos.css';
+import { useState,useEffect } from "react";
 
 
 const App = () => {

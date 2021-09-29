@@ -1,19 +1,32 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+import Nav from "react-bootstrap/Nav"
+
+const {Item} = Nav
 
 
-const Nav = () => {
+
+const Navegador = () => {
     return(
-  
-            <ul>
-            <a class="dropdown-item" href="#">Empanadas</a>
-            <a class="dropdown-item" href="#">Hamburguesas</a>
-            <a class="dropdown-item" href="#">Bebidas</a>
+ 
+            <Nav>
+                <Item>   
+                <Link className="nav-link" to="/categoria/1">Hamburguesas</Link>
+                </Item> 
+                <Item>   
+                <Link className="nav-link" to="/categoria/2">Papas fritas</Link>
+                </Item> 
+                <Item>   
+                <Link className="nav-link" to="/categoria/3">Combos</Link>
+                </Item>   
+            
 
-            </ul>
+
+            </Nav>
 
     )
 }
 
-export default Nav  
+export default Navegador  
 
       

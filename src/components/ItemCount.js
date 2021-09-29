@@ -2,7 +2,7 @@ import {useState} from "react"
 
 
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock,id, initial, onAdd}) => {
 
     const [contador, setContador] = useState(0)
     return(

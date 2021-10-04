@@ -1,0 +1,21 @@
+#Header{
+    padding: 1em;
+    border: black solid;
+    background-color:bisque;
+    font-family: monospace;
+}
+
+#index{
+    padding: 2em;
+    font-family: monospace;
+    text-justify:middle;
+    
+}
+
+#cart{
+    color:white;
+}
+
+#cartimg{
+    width: 600px;
+}

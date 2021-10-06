@@ -24,21 +24,20 @@ const ItemDetailContainer = () => {
     useEffect(()=>{
         const simulacion = new Promise((resolver)=>{
         setTimeout(() => {
-            console.log("Hecho")
             resolver(products)
         }, 2000)
     })
     simulacion.then((res)=>{
         setProductos(res)
-        console.log(res)
+
     })
 })
-          
+
             return(
            
                 <ul>
 
-            {productos.filter(productos => productos.id ===1).map((productos,indice)=>{
+            {productos.filter(productos => productos.id == parametro.id ).map((productos,indice)=>{
             return <ItemDetail productos={productos}/>
         })}
              </ul>

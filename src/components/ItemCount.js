@@ -10,7 +10,6 @@ const ItemCount = ({stock,id, onAdd}) => {
     const data = contador
 
     const handleclick  = () => {
-        console.log(data)
         onAdd(data)
         
     }

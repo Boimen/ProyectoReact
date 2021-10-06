@@ -19,19 +19,17 @@ const ItemlistContainer = () => {
             const [productos,setProductos] = useState([])
             const parametro = useParams()
 
-            console.log(parametro)
+   
 
          
             useEffect(()=>{
                 const simulacion = new Promise((resolver)=>{
                 setTimeout(() => {
-                    console.log("Hecho")
                     resolver(products)
                 }, 2000)
             })
             simulacion.then((res)=>{
                 setProductos(res)
-                console.log(res)
             })
         })
                

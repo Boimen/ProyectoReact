@@ -1,14 +1,16 @@
 import ItemCount from './ItemCount';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import usePlaceholder from 'react-bootstrap/esm/usePlaceholder';
-import { useParams } from 'react-router';
+import Contexto from './Contexto';
+import { useContext } from 'react';
 
 const ItemDetail = ({productos}) => {
     
     const datocantidad = (dato) =>{
-        console.log(dato)
+     addItem(productos,dato)
     }
-  
+    
+    const {addItem} = useContext(Contexto)
 
 
     return(

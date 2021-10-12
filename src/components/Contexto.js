@@ -13,21 +13,31 @@ export const ProviderCustom = ({children}) => {
 
 
     const [carrito,setCarrito] = useState([])
+    const [total,setTotal] = useState ()
 
     const addItem = (producto,cantidad) => {
+        let precio = (producto.precio * cantidad)
         if(!inInCart(producto.id)){
         setCarrito([producto,cantidad])
+        setTotal(precio)
     }
 }
+  
 
     const removeItem = (id) => {
+        let eliminado = false;
         for(let i = 0; i<carrito.length;i++){
-            if(carrito[i].id == id){
-           carrito.removeItem(i)
-       }
+            if(carrito[i].id === id){
+           carrito.splice(i,carrito[i].cantidad)
+       } eliminado = true
    }
+ 
+   return id;
 }
-    
+
+    console.log(removeItem)
+
+     
 
     const clearCarrito = (producto) =>{
         carrito.clear()
@@ -46,7 +56,9 @@ export const ProviderCustom = ({children}) => {
 
     const valorDelContexto = {
         carrito : carrito,
-        addItem : addItem
+        total : total,
+        addItem : addItem,
+        removeItem : removeItem
     }
 
         return ( 

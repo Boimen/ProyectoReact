@@ -11,7 +11,6 @@ const ItemCount = ({stock,id, onAdd}) => {
 
     const handleclick  = () => {
         onAdd(data)
-        
     }
 
     return(

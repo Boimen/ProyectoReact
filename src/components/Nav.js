@@ -18,7 +18,8 @@ const Navegador = () => {
                 </Item> 
                 <Item>   
                 <Link className="nav-link" to="/categoria/3">Combos</Link>
-                </Item>   
+                </Item>
+                   
             
 
 

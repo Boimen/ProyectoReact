@@ -4,7 +4,7 @@ import ItemlistContainer from "./ItemlistContainer";
 import './Estilos.css';
 import ItemDetailContainer from "./ItemDetailContainer";
 import Header from "./Header";
-import ItemDetail from "./ItemDetail";
+
 import Carrito from "./Carrito";
 import Contexto from "./Contexto";
 import { ProviderCustom } from "./Contexto";
@@ -13,21 +13,23 @@ import { ProviderCustom } from "./Contexto";
 
 const App = () => {
     return(
-<BrowserRouter>      
+<BrowserRouter> 
+<ProviderCustom>     
 <Header />
-<div id="index">
+
 <Switch>
-<ProviderCustom>
+<div id="index">
+
 <Route path="/" component={ItemlistContainer} exact/>    
 <Route path="/categoria/:categoria" component={ItemlistContainer} exact/>
 <Route path="/Item/:id" component={ItemDetailContainer} exact/>
 <Route path="/carrito" component={Carrito} exact/>
-
-</ProviderCustom>
-</Switch>
-
-
 </div>
+
+</Switch>
+</ProviderCustom>
+
+
 </BrowserRouter>
 )    
 }

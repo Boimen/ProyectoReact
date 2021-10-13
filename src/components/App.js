@@ -4,14 +4,13 @@ import ItemlistContainer from "./ItemlistContainer";
 import './Estilos.css';
 import ItemDetailContainer from "./ItemDetailContainer";
 import Header from "./Header";
-
 import Carrito from "./Carrito";
-import Contexto from "./Contexto";
 import { ProviderCustom } from "./Contexto";
 
 
-
 const App = () => {
+
+
     return(
 <BrowserRouter> 
 <ProviderCustom>     

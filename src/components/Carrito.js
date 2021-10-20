@@ -1,8 +1,9 @@
-
+import { firestore } from "../Firebase";
 import { Link } from 'react-router-dom';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Contexto, { ProviderCustom } from "./Contexto";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Carrito = () =>{
 
@@ -15,6 +16,34 @@ const Carrito = () =>{
          removeItem(dato)
     }
     
+    useEffect(()=>{
+
+        const db = firestore
+        const coleccion = db.collection("ordenes")
+
+        const nueva_orden = {
+            buyer : {
+                nombre:"Fernando",
+                telefono:"11111111",
+                email:"fgbaumann@gmail.com",
+            },
+            /* NO FUNCIONA
+            date: firestore.Timestamp.now(),
+            */
+            items: carrito,
+            total: total,
+            }
+            const consulta = coleccion.add(nueva_orden)
+
+            consulta
+                .then(res=>{
+                    console.log(res)
+                })
+                .catch(err=>{
+                    console.log(err)
+                })
+        },[])
+   
     
  
     if(carrito.length>0){

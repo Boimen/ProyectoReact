@@ -53,7 +53,7 @@ const ItemlistContainer = () => {
                         console.log("error")
                     })
                   
-            })
+            },[])
 
 
 /*

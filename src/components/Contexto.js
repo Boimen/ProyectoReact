@@ -13,8 +13,9 @@ export const ProviderCustom = ({children}) => {
 
 
     const [carrito,setCarrito] = useState([])
-    const [total,setTotal] = useState ()
+    const [total,setTotal] = useState (0)
 
+    
     const addItem = (producto,cantidad) => {
         let precio = (producto.precio * cantidad)
         if(!inInCart(producto.id)){
@@ -39,8 +40,9 @@ export const ProviderCustom = ({children}) => {
 
      
 
-    const clearCarrito = (producto) =>{
-        carrito.clear()
+    const clearCarrito = () =>{
+        carrito.splice(0,carrito.length)
+        console.log(carrito)
     }
     
     const inInCart = (id) =>{
@@ -58,7 +60,8 @@ export const ProviderCustom = ({children}) => {
         carrito : carrito,
         total : total,
         addItem : addItem,
-        removeItem : removeItem
+        removeItem : removeItem,
+        clearCarrito : clearCarrito 
     }
 
         return ( 

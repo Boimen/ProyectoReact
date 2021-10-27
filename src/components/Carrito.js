@@ -10,12 +10,19 @@ const Carrito = () =>{
     const {carrito} = useContext(Contexto)
     const {total} = useContext(Contexto)
     const {removeItem} = useContext(Contexto)
+    const{clearCarrito} = useContext(Contexto)
    
 
     const handleclick = (dato) => {
          removeItem(dato)
     }
-    
+
+    const clickClear = () => {
+        clearCarrito()
+    }
+    if(carrito.length>0){
+    console.log(carrito)
+    }
     useEffect(()=>{
 
         const db = firestore
@@ -25,16 +32,16 @@ const Carrito = () =>{
             buyer : {
                 nombre:"Fernando",
                 telefono:"11111111",
-                email:"fgbaumann@gmail.com",
+                email:"fgbaumann@gmail.com"
             },
-            /* NO FUNCIONA
-            date: firestore.Timestamp.now(),
-            */
             items: carrito,
-            total: total,
+            total: total
             }
             const consulta = coleccion.add(nueva_orden)
 
+            if(clearCarrito){
+            consulta = coleccion.delete(nueva_orden)
+            }
             consulta
                 .then(res=>{
                     console.log(res)
@@ -68,6 +75,9 @@ const Carrito = () =>{
     )})}
     <div class="col d-flex justify-content-center mb-4">
         <h1>Precio total: ${total}</h1>
+    </div>
+    <div class="col d-flex justify-content-center mb-4">
+        <button onClick={clickClear()}>Vaciar carrito</button>
     </div>
 
     </ul>

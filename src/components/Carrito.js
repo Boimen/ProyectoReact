@@ -13,15 +13,9 @@ const Carrito = () =>{
     const{clearCarrito} = useContext(Contexto)
    
 
-    const handleclick = (dato) => {
-         removeItem(dato)
-    }
 
-    const clickClear = () => {
-        clearCarrito()
-    }
     if(carrito.length>0){
-    console.log(carrito)
+
     }
     useEffect(()=>{
 
@@ -39,9 +33,7 @@ const Carrito = () =>{
             }
             const consulta = coleccion.add(nueva_orden)
 
-            if(clearCarrito){
-            consulta = coleccion.delete(nueva_orden)
-            }
+           
             consulta
                 .then(res=>{
                     console.log(res)
@@ -68,7 +60,8 @@ const Carrito = () =>{
         <img src={producto.imagen} id="cartimg"/>
         <p class="col d-flex justify-content-center mb-4" >{producto.detalle}</p>
         <h2>${producto.precio}x{total/producto.precio}</h2>
-        <button onClick={handleclick(producto.id)}>Eliminar del carrito</button>
+        <button onClick={()=>{
+            removeItem(producto.id)}}>Eliminar del carrito</button>
         </div>
         </div>
 
@@ -77,7 +70,9 @@ const Carrito = () =>{
         <h1>Precio total: ${total}</h1>
     </div>
     <div class="col d-flex justify-content-center mb-4">
-        <button onClick={clickClear()}>Vaciar carrito</button>
+        <button onClick={() => {
+            clearCarrito()
+        }}>Vaciar carrito</button>
     </div>
 
     </ul>

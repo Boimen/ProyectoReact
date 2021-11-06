@@ -13,10 +13,12 @@ const Cartwidjet = () => {
   
      
         <Link to="/carrito">
+
             <p className="material-icons">
             shopping_cart
             </p>
-            <h3>{carrito.length}</h3>
+            <h2>{carrito.length}</h2>
+
         </Link>    
     
 

@@ -20,8 +20,8 @@ const App = () => {
 <div id="index">
 
 <Route path="/" component={ItemlistContainer} exact/>    
-<Route path="/categoria/:categoria" component={ItemlistContainer} exact/>
-<Route path="/Item/:id" component={ItemDetailContainer} exact/>
+<Route exact path="/categoria/:categoria" component={ItemlistContainer} />
+<Route path="/Item/:id" component={ItemDetailContainer} strict/>
 <Route path="/carrito" component={Carrito} exact/>
 </div>
 

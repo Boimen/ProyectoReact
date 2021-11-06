@@ -16,33 +16,36 @@ export const ProviderCustom = ({children}) => {
     const [total,setTotal] = useState (0)
 
     
-    const addItem = (producto,cantidad) => {
-        let precio = (producto.precio * cantidad)
-        if(!inInCart(producto.id)){
-        setCarrito([producto,cantidad])
+    const addItem = (nuevoproducto,cantidad) => {
+        let precio = (nuevoproducto.precio * cantidad)
+        if(!inInCart(nuevoproducto.id)){
+        setCarrito([nuevoproducto,cantidad])
         setTotal(precio)
+        const updatedItems= [...carrito,nuevoproducto]
+
+        return (setCarrito(updatedItems))
     }
 }
   
 
     const removeItem = (id) => {
-        let eliminado = false;
-        for(let i = 0; i<carrito.length;i++){
-            if(carrito[i].id === id){
-           carrito.splice(i,carrito[i].cantidad)
-       } eliminado = true
-   }
- 
-   return id;
+        
+        const updatedItems = [...carrito]
+        for(let i = 0;i<updatedItems.length;i++){
+          if(updatedItems[i].id === id){  
+          updatedItems.splice(updatedItems[i],1 )
+        }
+      }
+   
+
+     return setCarrito(updatedItems);
+  
 }
-
-    console.log(removeItem)
-
+  
      
 
     const clearCarrito = () =>{
-        carrito.splice(0,carrito.length)
-        console.log(carrito)
+         setCarrito([])
     }
     
     const inInCart = (id) =>{
